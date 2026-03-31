@@ -1,6 +1,9 @@
 import { ThemeProvider, CssBaseline, Container, Box } from '@mui/material';
 import theme from './theme/theme';
 import Header from './components/Header';
+import Hero from './components/Hero';
+import PainPoints from './components/PainPoints';
+import Methodology from './components/Methodology';
 
 function App() {
   return (
@@ -8,14 +11,14 @@ function App() {
       <CssBaseline />
       <Header />
       
-      {/* O maxWidth="lg" limita a largura da página em cerca de 1200px */}
-      <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+      {/* O Container alinha tudo ao centro */}
+      <Container maxWidth="lg" sx={{ mt: 4, mb: 8 }}>
         <Box component="main">
-          {/* As seções Hero, PainPoints, etc., entrarão aqui */}
-          <h1>A estrutura base está pronta!</h1>
+          <Hero />
+          <PainPoints />
+          <Methodology />
         </Box>
       </Container>
-
     </ThemeProvider>
   );
 }
