@@ -1,54 +1,26 @@
-import { AppBar, Toolbar, Button, Box, Typography } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button, Stack, Box } from '@mui/material';
 
-function Header() {
+const Header = () => {
   return (
-    <AppBar 
-      position="static" 
-      color="transparent" 
-      elevation={0} // Tira a sombra padrão do AppBar
-      sx={{ borderBottom: '1px solid #eaeaea', padding: '10px 5%' }}
-    >
-      <Toolbar sx={{ justifyContent: 'space-between', padding: 0 }}>
+    <AppBar position="sticky" color="inherit" elevation={1} sx={{ bgcolor: 'white' }}>
+      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+        <Typography variant="h6" component="div" sx={{ fontWeight: 'bold', color: 'primary.main' }}>
+          LEMOS IDIOMAS
+        </Typography>
         
-        {/* Lado Esquerdo: Logo (Placeholder simulando o ícone roxo) */}
-        <Box display="flex" alignItems="center" gap={1}>
-          <Box sx={{ width: 30, height: 30, backgroundColor: 'primary.main', borderRadius: '6px' }}></Box>
-          <Typography variant="h6" color="primary" fontWeight="bold">
-            Lemos Idiomas
-          </Typography>
-        </Box>
+        {/* Menu de navegação (visível apenas em telas médias/grandes) */}
+        <Stack direction="row" spacing={3} sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Button color="inherit">O Método</Button>
+          <Button color="inherit">Depoimentos</Button>
+          <Button color="inherit">FAQ</Button>
+        </Stack>
 
-        {/* Centro: Links de Navegação (Escondidos em telas de celular) */}
-        <Box sx={{ display: { xs: 'none', md: 'flex' }, gap: 4 }}>
-          <Typography variant="body2" sx={{ cursor: 'pointer', fontWeight: 500, '&:hover': { color: 'primary.main' } }}>
-            O Método
-          </Typography>
-          <Typography variant="body2" sx={{ cursor: 'pointer', fontWeight: 500, '&:hover': { color: 'primary.main' } }}>
-            Depoimentos
-          </Typography>
-          <Typography variant="body2" sx={{ cursor: 'pointer', fontWeight: 500, '&:hover': { color: 'primary.main' } }}>
-            FAQ
-          </Typography>
-        </Box>
-
-        {/* Lado Direito: Botão Verde */}
-        <Button 
-          variant="contained" 
-          color="secondary" 
-          sx={{ 
-            color: '#000', // Texto preto para contrastar com o verde claro
-            borderRadius: '25px', 
-            padding: '8px 24px',
-            boxShadow: 'none',
-            '&:hover': { boxShadow: 'none', filter: 'brightness(0.9)' }
-          }}
-        >
-          Ver planos
+        <Button variant="contained" color="secondary" sx={{ borderRadius: 2 }}>
+          Quero acelerar
         </Button>
-
       </Toolbar>
     </AppBar>
   );
-}
+};
 
 export default Header;
